@@ -1,0 +1,8 @@
+[
+	{
+		"button": "button1", "count": 1,
+		"modifiers": ["shift", "alt"],
+		"press_args": {"by": "words"},
+		"command": "go-to-function"
+	}
+]

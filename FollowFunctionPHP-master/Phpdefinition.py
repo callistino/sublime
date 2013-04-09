@@ -5,15 +5,15 @@ import linecache
 import webbrowser
 import re
 
-class JSdefinitionCommand(sublime_plugin.TextCommand):
-  word = ""
+class PhpdefinitionCommand(sublime_plugin.TextCommand):
+	word = ""
 	link = ""
 
 	# przeszukuje plik z indeksem za nazwa funkcji
 	def grepDb(self):
-		filePattern ="*.js"
+		filePattern ="*.php"
 		filepath = ""
-		dirs = os.path.join(sublime.packages_path(), self.pathForDB, "_js")
+		dirs = os.path.join(sublime.packages_path(), self.pathForDB, "_php")
 		for path, dirs, files in os.walk(os.path.abspath(dirs)):
 			for filename in fnmatch.filter(files, filePattern):
 				filepath = os.path.join(path, filename)
@@ -67,10 +67,11 @@ class JSdefinitionCommand(sublime_plugin.TextCommand):
 	def checkPathForDB(self):
 		for root, dirs, files in os.walk(sublime.packages_path()):
 			for onedir in dirs:
-				if re.match(r'.ollow ?.unction ?js', onedir, re.IGNORECASE):
+				if re.match(r'.ollow ?.unction ?php', onedir, re.IGNORECASE):
 					self.pathForDB = onedir
 
 	def run(self, edit):
 		self.checkPathForDB()
 		self.word = "function " + self.getword()
 		self.grepDb()
+

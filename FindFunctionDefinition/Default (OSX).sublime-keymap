@@ -1,0 +1,4 @@
+[
+  { "keys": ["f8"], "command": "go_to_function" },
+  { "keys": ["alt+left"], "command": "go_to_caller" }
+]
